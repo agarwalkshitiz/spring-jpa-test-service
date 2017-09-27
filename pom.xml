@@ -11,38 +11,48 @@
   <description>Test Service</description>
 
   <parent>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <version>1.5.2.RELEASE</version>
+    <groupId>com.oyo</groupId>
+    <artifactId>oyo-microservice-parent</artifactId>
+    <version>0.0.3</version>
   </parent>
 
+  <repositories>
+    <repository>
+      <id>s3.release</id>
+      <url>s3://repo.oyo.com/release</url>
+    </repository>
+    <repository>
+      <id>s3.snapshot</id>
+      <url>s3://repo.oyo.com/snapshot</url>
+    </repository>
+  </repositories>
+
   <properties>
-    <java.version>1.8</java.version>
+    <package.name>${project.groupId}.${project.artifactId}</package.name>
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-jpa</artifactId>
+      <version>1.5.4.RELEASE</version>
     </dependency>
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
+      <version>6.0.6</version>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-devtools</artifactId>
+      <version>1.5.4.RELEASE</version>
       <optional>true</optional>
     </dependency>
   </dependencies>
 
   <build>
     <plugins>
-          <plugin>
+      <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
         <configuration>
